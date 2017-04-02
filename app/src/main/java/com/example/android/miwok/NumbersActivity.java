@@ -10,18 +10,15 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 public class NumbersActivity extends AppCompatActivity {
-
+Translation translation = new Translation();
     MediaPlayer mysound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
-        String[] numbersMiwok = {"lutti", "otiiko", "tolokosu", "oyyisa", "massokka", "temmokka", "kenekaku", "kawinta", "wo'e", "na'aacha"};
-        String[] numbersEngilish = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
-        int[] imgId = {R.drawable.number_one, R.drawable.number_two, R.drawable.number_three, R.drawable.number_four, R.drawable.number_five, R.drawable.number_six, R.drawable.number_seven, R.drawable.number_eight, R.drawable.number_nine, R.drawable.number_ten};
 
-        CustomAdapter numbersAdapter = new CustomAdapter(getApplicationContext(), numbersMiwok, numbersEngilish, imgId);
+        CustomAdapter numbersAdapter = new CustomAdapter(getApplicationContext(), translation.getNumbersMiwok(), translation.getNumbersEngilish(), translation.getimgId());
         ListView numbersListView = (ListView) findViewById(R.id.numbersList);
         numbersListView.setAdapter(numbersAdapter);
 
